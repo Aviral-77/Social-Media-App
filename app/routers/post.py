@@ -3,8 +3,8 @@ from fastapi.params import Body
 from pydantic import BaseModel
 from typing import Optional, List
 from sqlalchemy.orm import Session
-from .. import models, schemas, utils, oauth2
-from .. database import engine, get_db
+import models, schemas, utils, oauth2
+from database import engine, get_db
 
 # app = FastAPI()
 router = APIRouter(prefix='/posts',

@@ -7,11 +7,11 @@ from random import randrange
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
-from . import models, schemas, utils
-from .database import engine, get_db
-from .utils import pwd_context
+import models, schemas, utils
+from database import engine, get_db
+from utils import pwd_context
 from sqlalchemy.orm import Session
-from .routers import post, users, auth
+from routers import post, users, auth, vote
 from pydantic_settings import BaseSettings
 models.Base.metadata.create_all(bind=engine)
 
@@ -57,3 +57,4 @@ def test_posts(db:Session = Depends(get_db)):
 app.include_router(post.router)
 app.include_router(users.router)
 app.include_router(auth.router)
+app.include_router(vote.router)
